@@ -236,9 +236,19 @@ namespace Survey_Challenge
     }
     class Program
     {
+        static public event Action Posted;
+
         static void Main(string[] args)
         {
+            var stats = new Stats();
+            stats.Start();
+
             var data = new Data();
+
+            if(Posted != null)
+            {
+                Posted();
+            }
 
             //   Stop the console from closing automatically
             // by calling Console.ReadLine();
